@@ -4,7 +4,7 @@ package story;
 
 option go_package = "github.com/zalhonan/story-proto/story;storyv1";
 
-import "proto/user/user.proto";
+import "user.proto";
 
 service StoryService {
   rpc getStory(StoryRequest) returns (Story) {}
