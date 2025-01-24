@@ -4,6 +4,8 @@ package story;
 
 option go_package = "github.com/zalhonan/story-proto/story;storyv1";
 
+import "proto/user/user.proto";
+
 service StoryService {
   rpc getStory(StoryRequest) returns (Story) {}
 
@@ -14,7 +16,7 @@ message Story {
   optional int64 id = 1;
   string title = 2;
   string textPreview = 3;
-  repeated int64 users = 4; // change this to repeated User
+  repeated user.User users = 4;
   optional string pictureUrl = 5;
 }
 
