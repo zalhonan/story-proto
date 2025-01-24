@@ -1,0 +1,1 @@
+## Proto files for Straight Story server

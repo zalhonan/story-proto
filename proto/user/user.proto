@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/zalhonan/story-proto/user;userv1";
+
+service UserService {
+  rpc updateUser(User) returns (UpdateUserResponse) {}
+
+  rpc getUser(UserRequest) returns (User) {}
+
+  rpc getFriends(UserRequest) returns (UserFriendsResponse) {}
+}
+
+message User {
+  optional int64 id = 1;
+  bool online = 2;
+  optional string photoUrl = 3;
+  optional string photoFilePath = 4;
+  string nickName = 5;
+  Initials initials = 6;
+  string phoneNumber = 7;
+  string email = 8;
+  Gender gender = 9;
+  FavoriteWriters favoriteWriters = 10;
+  FavoriteQuotes favoriteQuotes = 11;
+  SocialNetworks socialNetworks = 12;
+  string about = 13;
+  repeated int32 friendsIdList = 14;
+}
+
+
+enum Gender {
+  male = 0;
+  female = 1;
+  any = 2;
+}
+
+message UserRequest {
+  int32 id = 1;
+}
+
+message UserFriendsResponse {
+  repeated User users = 1;
+}
+
+message UpdateUserResponse {}
+
+message FavoriteQuotes {
+  repeated UserQuote quotes = 1;
+}
+
+message FavoriteWriters {
+  repeated string values = 1;
+}
+
+message SocialNetworks {
+  string telegram = 1;
+  string vkontakte = 2;
+}
+
+message Initials {
+  string firstName = 1;
+  string surname = 2;
+  string patronymic = 3;
+}
+
+message UserQuote {
+  string quote = 1;
+  string author = 2;
+}

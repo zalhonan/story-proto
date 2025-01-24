@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package story;
+
+option go_package = "github.com/zalhonan/story-proto/story;storyv1";
+
+service StoryService {
+  rpc getStory(StoryRequest) returns (Story) {}
+
+  rpc getAllByUserId(StoryByUserRequest) returns (StoriesByUserResponse) {}
+}
+
+message Story {
+  optional int64 id = 1;
+  string title = 2;
+  string textPreview = 3;
+  repeated int64 users = 4; // change this to repeated User
+  optional string pictureUrl = 5;
+}
+
+message StoryRequest {
+  int32 id = 1;
+}
+
+message StoryByUserRequest {
+  int32 id = 1;
+}
+
+message StoriesByUserResponse {
+  repeated Story stories = 1;
+}
