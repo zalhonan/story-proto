@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package user;
 
-option go_package = "github.com/zalhonan/story-proto/user;userv1";
+option go_package = "github.com/zalhonan/story-proto/pkg/user;userv1";
 
 service UserService {
   rpc updateUser(User) returns (UpdateUserResponse) {}
@@ -13,7 +13,7 @@ service UserService {
 }
 
 message User {
-  optional int64 id = 1;
+  string id = 1;
   bool online = 2;
   optional string photoUrl = 3;
   optional string photoFilePath = 4;

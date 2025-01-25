@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package phrase;
 
-option go_package = "github.com/zalhonan/story-proto/phrase;phrasev1";
+option go_package = "github.com/zalhonan/story-proto/pkg/phrase;phrasev1";
 
 service PhraseService {
   rpc getPhrase(PhraseRequest) returns (Phrase) {}
@@ -15,14 +15,14 @@ service PhraseService {
 }
 
 message Phrase {
-  optional int64 id = 1;
+  string id = 1;
   string text = 2;
-  int32 userId = 3;
-  int32 storyId = 4;
+  string userId = 3;
+  string storyId = 4;
 }
 
 message PhraseRequest {
-  int32 id = 1;
+  string id = 1;
 }
 
 message PhrasesByStoryIdResponse {
@@ -30,7 +30,7 @@ message PhrasesByStoryIdResponse {
 }
 
 message PhrasesByStoryIdRequest {
-  int32 storyId = 1;
+  string storyId = 1;
 }
 
 message AddPhraseToStoryRequest {
