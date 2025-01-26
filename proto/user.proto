@@ -37,7 +37,7 @@ enum Gender {
 }
 
 message UserRequest {
-  int32 id = 1;
+  string id = 1;
 }
 
 message UserFriendsResponse {
